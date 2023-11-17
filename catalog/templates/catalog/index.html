@@ -1,0 +1,21 @@
+{% extends "catalog/base.html" %}
+
+
+{% block content %}
+<div class="cat-cards-container">
+    <div class="cat-cards-container">
+        <div class="cat-cards">
+            {% for product in products %}
+            <div class="cat-cards__card">
+                <a class="cat-cards__link" href="{% url 'basket_add' product.id %}">
+                    <div class="image">
+                    <img src="{{ product.images.url }}" alt="item">
+                    </div>
+                    <span class="cat-cards__card__name">{{ product.name }}</span>
+                    <span class="cat-cards__card__price">{{ product.price }} ₽</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
