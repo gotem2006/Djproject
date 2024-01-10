@@ -1,4 +1,6 @@
 {% load static %}
+{% load humanize %}
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,6 +9,7 @@
     <title>VITAL MEBEL</title>
     <link rel="stylesheet" href="{% static 'catalog/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'catalog/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/css/productpage.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
@@ -24,24 +27,35 @@
             </div>
         
     </nav>
-    <main>
-        <img class="mainpage" src="{% static 'catalog/img/main.png' %}">
-        <div class="hz"></div>
-        <nav class="nav-cat">
-            <div class="cat-container">
-                <div class="navwrap">
-                    <ul class="cats">
-                        <li><a href="{% url 'index' %}">Все</a></li>
-                        {% for category in categories %}
-                        <li><a href="{% url 'category' category.id %}">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
+    <main class="main-product-page">
+        <div class="product-page">
+            <div class="back-to-catalog">
+                <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4.5L1 4.5M1 4.5L6.625 8M1 4.5L6.625 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <a href="{% url 'index' %}">Вернуться в каталог</a>
+            </div>
+            <img class="product-img" src="{{ product.images.url }}">
+            <div class="under-product">
+                <div class="product-price">{{product.price|floatformat|intcomma|stringreplace}}</div>
+                <div class="obertka">
+                    <a href="{% url 'basket_add' product.id %}">
+                        <button class="basket-button">В корзину</button>
+                    </a>
                 </div>
             </div>
-        </nav>
         </div>
-        {% block content %}    
-        {% endblock %}
+        <div class="right-container">
+            <div class="info-container">
+                <section>"{{product.name}}"</section>
+                <div class="characteristicks">Описание: {{product.description}}</div>
+                <section>Характеристики</section>
+                {% for item in info %}
+                <div class="characteristicks values">{{item.attribute_name}}: {{item.attribute_value}}</div>
+                {% endfor %}
+            </div>
+            
+        </div>
     </main>
 </body>
 </html>

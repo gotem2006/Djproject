@@ -4,9 +4,9 @@ from django.db import models
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=64)
-    last_name = models.CharField(max_length=64)
+    full_name = models.CharField(max_length=256)
     email = models.EmailField(max_length=256)
     # basket_history = models.JSONField()
-    adress = models.CharField(max_length=256)
-    pass
+    address = models.CharField(max_length=256)
+    phone_number = models.CharField(max_length=50)
+    

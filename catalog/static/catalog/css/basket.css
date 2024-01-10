@@ -1,0 +1,123 @@
+.basket-list{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 250px;
+    padding-top: 20px;
+    padding-left: 120px;
+}
+
+.your-order{
+    font-size: 32px;
+    font-family: "Inter", sans-serif;
+    padding-left: 120px;
+    padding-top: 120px;
+}
+
+.basket-product{
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.basket-product img{
+    width: 350px;
+    height: 250px;
+}
+
+.left-content-container{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+
+.left-content-container a{
+    height: 24px;
+}
+
+
+.item-name{
+    padding-left: 30px;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+}
+
+.qauntity{
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.price{
+    padding-left: 30px;
+    height: 100%;
+}
+
+.trash{
+
+    align-self: flex-end;
+}
+
+.total-price{
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    font-family: "Inter", sans-serif;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.total-price .otstup{
+    padding-top: 20px;
+}
+
+.order-button{
+    width: 240px;
+    height: 60px;
+    border-radius: 54px;
+    background-color: black;
+    color: white;
+    border-style: solid;
+}
+.order-button:hover{
+    cursor: pointer;
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+    transition: 0.5s;
+}
+
+.clear-basket{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.clear-basket div{
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+}
+
+.clear-button{
+    padding-top: 10px;
+}
+.clear-button button{
+    width: 400px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 54px;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    border-style: solid;
+}
+
+.clear-button button:hover{
+    cursor: pointer;
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+    transition: 0.5s;
+    
+}

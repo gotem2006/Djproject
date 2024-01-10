@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig',
-    'users.apps.UsersConfig',
     'orders.apps.OrdersConfig',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
 SESSION_COOKIE_AGE = 1209600  
+
+
+
+API_KEY='832051e96688d68854774e8ddbdaf6b2b706e42a'
+SECRET_KEY_FOR_API='62cb4f40d9c7f2b31857d321556be41016940241'

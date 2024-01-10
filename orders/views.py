@@ -7,9 +7,7 @@ def MakeOrder(request):
         form = Orderform(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/home")
     else:
         form = Orderform()
     return render(request, 'orders/order.html', {'form':form})
-        
-        

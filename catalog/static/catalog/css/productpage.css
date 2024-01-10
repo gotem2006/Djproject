@@ -1,0 +1,102 @@
+.product-img{
+    width: 600px;
+    height: 550px;
+}
+
+.back-to-catalog{
+    width: 145px;
+    height: 15px;
+    padding-top: 56px;
+    padding-bottom: 23px;
+}
+.back-to-catalog a{
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+.product-page{
+    padding-left: 80px;
+}
+
+
+
+.under-product{
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+}
+
+.product-price{
+    padding-top: 9px;
+    font-size: 32px;
+    font-family: "Inter", sans-serif;
+    width: fit-content;
+    height: fit-content;
+    
+}
+
+
+.obertka{
+    padding-top: 0px;
+}
+
+.basket-button{
+    text-decoration: none;
+    width: 185px;
+    height: 57px;
+    background-color: black;
+    color: white;
+    border-radius: 54px;
+    border-style: solid;
+
+}
+
+.basket-button:hover {
+
+
+    cursor: pointer;
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+    transition: 0.5s;
+    
+}
+
+.right-container
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.main-product-page{
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+}
+
+.info-container{
+    width: 570px;
+    padding-top: 88px;
+    padding-left: 110px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container section{
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    align-self: center;
+}
+
+.characteristicks{
+    align-self: flex-start;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+}
+
+.values{
+    padding-top: 24px;
+}

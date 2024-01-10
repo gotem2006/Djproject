@@ -23,6 +23,7 @@ body {
 
 .navbar .logo{
     text-align: center;
+    font-family: "Inter", sans-serif;
 }
 .logo a{
     text-decoration: none;
@@ -73,6 +74,7 @@ body {
     text-decoration: none;
     padding:  20px;
     font-size: 20px;
+    font-family: "Inter", sans-serif;
 }
 
 .navwrap{
@@ -102,12 +104,14 @@ body {
     text-align: center;
     margin-top: 10px;
     font-size: 20px;
+    font-family: "Inter", sans-serif;
 }
 .cat-cards__card__price {
     display: block;
     margin-top: 20px;
     text-align: center;
     font-size: 20px;
+    font-family: "Inter", sans-serif;
 }
 
 .cat-cards__link
@@ -115,3 +119,4 @@ body {
     text-decoration: none;
     color: #000;
 }
+

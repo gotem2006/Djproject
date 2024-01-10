@@ -40,6 +40,8 @@ class ProductAttribute(models.Model):
         verbose_name = 'Характеристика'
         verbose_name_plural = 'Характеристики'
 
+    def __str__(self) -> str:
+        return self.attribute_name
 
 class Basket(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -70,8 +72,22 @@ class Basket(models.Model):
             basket.qauntity = basket.qauntity - 1
             basket.save()
 
+
+    @classmethod
+    def total_sum(self, session):
+        baskets = Basket.objects.filter(session=session)
+        return sum([basket.sum() for basket in baskets])
+
     def sum(self):
         return self.qauntity * self.product.price
 
     def __str__(self):
         return f'Корзина для {self.session}'
+
+    @classmethod
+    def basket_to_json(self, session):
+        baskets = Basket.objects.filter(session=session)
+        return [{"id": basket.product.id,
+                 "product_name": basket.product.name,
+                 "quantity": basket.qauntity,
+                 "sum": self.sum()} for basket in baskets]

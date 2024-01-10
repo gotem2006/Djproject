@@ -1,5 +1,68 @@
-<form action="{% url 'MakeOrder' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_div }}
-    <input type="submit" value="Submit">
-</form>
+{% load static %}
+{% load humanize %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITAL MEBEL</title>
+    <link rel="stylesheet" href="{% static 'catalog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'orders/css/order.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 92 92" id="menu"><path d="M78 23.5H14c-3.6 0-6.5-2.9-6.5-6.5s2.9-6.5 6.5-6.5h64c3.6 0 6.5 2.9 6.5 6.5s-2.9 6.5-6.5 6.5zM84.5 46c0-3.6-2.9-6.5-6.5-6.5H14c-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5h64c3.6 0 6.5-2.9 6.5-6.5zm0 29c0-3.6-2.9-6.5-6.5-6.5H14c-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5h64c3.6 0 6.5-2.9 6.5-6.5z"></path></svg>
+        <div class="logo">
+            <a href="{% url 'index' %}">VITAL MEBEL</a>
+        </div>
+        <div class="container">
+            <a href="{% url 'basket_page' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="cart"><path d="M8.5,19A1.5,1.5,0,1,0,10,20.5,1.5,1.5,0,0,0,8.5,19ZM19,16H7a1,1,0,0,1,0-2h8.49121A3.0132,3.0132,0,0,0,18.376,11.82422L19.96143,6.2749A1.00009,1.00009,0,0,0,19,5H6.73907A3.00666,3.00666,0,0,0,3.92139,3H3A1,1,0,0,0,3,5h.92139a1.00459,1.00459,0,0,1,.96142.7251l.15552.54474.00024.00506L6.6792,12.01709A3.00006,3.00006,0,0,0,7,18H19a1,1,0,0,0,0-2ZM17.67432,7l-1.2212,4.27441A1.00458,1.00458,0,0,1,15.49121,12H8.75439l-.25494-.89221L7.32642,7ZM16.5,19A1.5,1.5,0,1,0,18,20.5,1.5,1.5,0,0,0,16.5,19Z"></path></svg>
+            </a>
+            </div>
+        
+    </nav>
+    <main>
+        <div class="contact-info">Контактные данные</div>
+        <form action="{% url 'orders:MakeOrder' %}" method="post">
+            {% csrf_token %}
+            <div class="form-div">
+                <label class="form-div-label" for="id_full_name">ФИО:</label>
+                <input type="text" name="full_name" class="form-input" placeholder="Фамилия Имя Отчество" required="" id="id_full_name">
+            </div>
+            <div class="form-div">
+                <label class="form-div-label" for="id_phone_number">Телефон:</label>
+                <input type="text" name="phone_number" class="form-input" placeholder="+ 7 999 999 99 99" required="" id="id_phone_number">
+            </div>
+            <div class="form-div">  
+                <label class="form-div-label" for="id_email">E-mail:</label>
+                <input type="text" name="email" class="form-input" placeholder="Электронаая почта" maxlength="256" required="" id="id_email">
+            </div>
+            <div class="form-div">
+                <label class="form-div-label" for="id_address">Адресс доставки:</label>
+                <input style="box-sizing:content-box;" type="text" id="address" name="address" class="form-input"  placeholder="Адресс доставки" maxlength="256" required="" id="id_address">
+                <script src="{% static 'orders/js/address.js' %}"></script>
+                <script src="{% static 'orders/js/orders.js' %}"></script>
+                <script>
+                    $("#address").suggestions({
+                        token: "832051e96688d68854774e8ddbdaf6b2b706e42a",
+                        type: "ADDRESS",
+                        /* Вызывается, когда пользователь выбирает одну из подсказок */
+                        onSelect: function(suggestion) {
+                            console.log(suggestion);
+                        }
+                    });
+                </script>
+            </div>
+            <div class="but">
+                <input class="but-input" type="submit" value="Продолжить">
+            </div>
+        </form>
+    </main>
+</body>
+</html>
